@@ -1,4 +1,4 @@
-// DNS Configurator for Grass7, no longer used due to changes.
+// DNS Configurator for Grass7
 
 #include "stdafx.h"
 #include <windows.h>
