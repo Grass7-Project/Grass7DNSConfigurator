@@ -12,5 +12,8 @@
 #include <tchar.h>
 #include "resource1.h"
 
-
-// TODO: reference additional headers your program requires here
+#include <windows.h>
+#include <shlobj.h>
+#include <NTSecAPI.h>
+#include <string>
+#include <Gr7API.h>
