@@ -37,7 +37,7 @@ void MainCodeClass::MainCode()
 	}
 
 	SERVICE_STATUS_PROCESS ssp;
-	LPQUERY_SERVICE_CONFIG lpsc = NULL;
+	LPQUERY_SERVICE_CONFIG lpsc;
 	SC_HANDLE SCManager;
 	SC_HANDLE SCService;
 	DWORD dwBytesNeeded;
