@@ -202,12 +202,14 @@
   <ItemGroup>
     <ClCompile Include="Grass7 DNS Configurator.cpp" />
     <ClCompile Include="MainCode.cpp" />
+    <ClCompile Include="ResourceLoader.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h" />
     <ClInclude Include="MainCode.h" />
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="ResourceLoader.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

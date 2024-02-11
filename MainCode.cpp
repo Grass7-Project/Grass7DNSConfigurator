@@ -6,23 +6,12 @@
 
 MainCodeClass MainCodeObject;
 
-void MainCodeClass::LoadStrings()
-{
-	AppResStringsObjects.Header = gr7::LoadStringToW(MainObjects.hInst, IDS_HEADER);
-	AppResStringsObjects.BodyText = gr7::LoadStringToW(MainObjects.hInst, IDS_BODY_TEXT);
-	AppResStringsObjects.ButtonEnable = gr7::LoadStringToW(MainObjects.hInst, IDS_BUTTON_ENABLE);
-	AppResStringsObjects.ButtonDisable = gr7::LoadStringToW(MainObjects.hInst, IDS_BUTTON_DISABLE);
-	AppResStringsObjects.ButtonExit = gr7::LoadStringToW(MainObjects.hInst, IDS_BUTTON_EXIT);
-	AppResStringsObjects.UACErrorHeader = gr7::LoadStringToW(MainObjects.hInst, IDS_UAC_ERROR_HEADER);
-	AppResStringsObjects.UACErrorTxt = gr7::LoadStringToW(MainObjects.hInst, IDS_UAC_ERROR_TEXT);
-	AppResStringsObjects.ButtonStart = gr7::LoadStringToW(MainObjects.hInst, IDS_BUTTON_START);
-	AppResStringsObjects.ButtonStop = gr7::LoadStringToW(MainObjects.hInst, IDS_BUTTON_STOP);
-	AppResStringsObjects.InfoHeader = gr7::LoadStringToW(MainObjects.hInst, IDS_INFO_HEADER);
-}
-
 void MainCodeClass::InfoTaskFail(UINT uID, PCWSTR pszIcon)
 {
-	TaskDialog(NULL, NULL, MainCodeObject.szBranding, AppResStringsObjects.InfoHeader, gr7::LoadStringToW(MainObjects.hInst, uID), TDCBF_CLOSE_BUTTON, pszIcon, NULL);
+	std::wstring WString(MAX_PATH, 0);
+	WString.resize((size_t)LoadStringW(MainObjects.hInst, uID, &WString[0], (int)WString.size()));
+
+	TaskDialog(NULL, NULL, MainCodeObject.szBranding, AppResStringsObjects.InfoHeader.c_str(), WString.c_str(), TDCBF_CLOSE_BUTTON, pszIcon, NULL);
 	exit(0);
 }
 
@@ -32,7 +21,7 @@ void MainCodeClass::MainCode()
 	gr7::LoadOSBrandingString(MainCodeObject.
 		szBranding);
 	if (gr7::isProcessElevated(GetCurrentProcess()) != 1) {
-		TaskDialog(NULL, NULL, MainCodeObject.szBranding, AppResStringsObjects.UACErrorHeader, AppResStringsObjects.UACErrorTxt, TDCBF_CLOSE_BUTTON, TD_ERROR_ICON, NULL);
+		TaskDialog(NULL, NULL, MainCodeObject.szBranding, AppResStringsObjects.UACErrorHeader.c_str(), AppResStringsObjects.UACErrorTxt.c_str(), TDCBF_CLOSE_BUTTON, TD_ERROR_ICON, NULL);
 		exit(0);
 	}
 
@@ -82,14 +71,14 @@ void MainCodeClass::MainCode()
 	int nClickedBtn;
 	HICON hIcon = LoadIconW(MainObjects.hInst, MAKEINTRESOURCE(IDI_MAIN_ICON));
 	LPCWSTR szTitle = MainCodeObject.szBranding,
-		szHeader = AppResStringsObjects.Header,
-		szBodyText = AppResStringsObjects.BodyText;
+		szHeader = AppResStringsObjects.Header.c_str(),
+		szBodyText = AppResStringsObjects.BodyText.c_str();
 	TASKDIALOG_BUTTON aCustomButtons[] = {
-		{ 1000, AppResStringsObjects.ButtonStart },
-		{ 1001, AppResStringsObjects.ButtonStop },
-		{ 1002, AppResStringsObjects.ButtonEnable },
-		{ 1003, AppResStringsObjects.ButtonDisable },
-		{ 1004, AppResStringsObjects.ButtonExit }
+		{ 1000, AppResStringsObjects.ButtonStart.c_str() },
+		{ 1001, AppResStringsObjects.ButtonStop.c_str() },
+		{ 1002, AppResStringsObjects.ButtonEnable.c_str() },
+		{ 1003, AppResStringsObjects.ButtonDisable.c_str() },
+		{ 1004, AppResStringsObjects.ButtonExit.c_str() }
 	};
 
 	tdc.hwndParent = NULL;
