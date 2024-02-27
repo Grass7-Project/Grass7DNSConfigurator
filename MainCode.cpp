@@ -18,9 +18,9 @@ void MainCodeClass::InfoTaskFail(UINT uID, PCWSTR pszIcon)
 void MainCodeClass::MainCode()
 {
 	MainObjects.hInst = GetModuleHandleW(NULL);
-	gr7::LoadOSBrandingString(MainCodeObject.
+	Grass7API::String::LoadOSBrandingString(MainCodeObject.
 		szBranding);
-	if (gr7::isProcessElevated(GetCurrentProcess()) != 1) {
+	if (Grass7API::Check::isProcessElevated(GetCurrentProcess()) != 1) {
 		TaskDialog(NULL, NULL, MainCodeObject.szBranding, AppResStringsObjects.UACErrorHeader.c_str(), AppResStringsObjects.UACErrorTxt.c_str(), TDCBF_CLOSE_BUTTON, TD_ERROR_ICON, NULL);
 		exit(0);
 	}
