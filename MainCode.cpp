@@ -1,5 +1,3 @@
-// DNS Configurator for Grass7
-
 #include "stdafx.h"
 #include "MainCode.h"
 #include "Global.h"

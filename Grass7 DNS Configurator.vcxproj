@@ -200,7 +200,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Grass7 DNS Configurator.cpp" />
+    <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="MainCode.cpp" />
     <ClCompile Include="ResourceLoader.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -15,13 +15,13 @@
     <ClCompile Include="MainCode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Grass7 DNS Configurator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ResourceLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryPoint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
