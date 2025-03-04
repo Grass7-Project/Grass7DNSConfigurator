@@ -4,36 +4,40 @@
 
 void ResourceLoader::LoadStrings()
 {
-	std::wstring Header(MAX_PATH, 0);
-	std::wstring BodyText(MAX_PATH, 0);
-	std::wstring ButtonEnable(MAX_PATH, 0);
-	std::wstring ButtonDisable(MAX_PATH, 0);
-	std::wstring ButtonExit(MAX_PATH, 0);
-	std::wstring UACErrorHeader(MAX_PATH, 0);
-	std::wstring UACErrorTxt(MAX_PATH, 0);
-	std::wstring ButtonStart(MAX_PATH, 0);
-	std::wstring ButtonStop(MAX_PATH, 0);
-	std::wstring InfoHeader(MAX_PATH, 0);
+	InternalLoadString(AppResStringsObjects.Header, IDS_HEADER);
+	InternalLoadString(AppResStringsObjects.BodyText, IDS_BODY_TEXT);
+	InternalLoadString(AppResStringsObjects.ButtonEnable, IDS_BUTTON_ENABLE);
+	InternalLoadString(AppResStringsObjects.ButtonDisable, IDS_BUTTON_DISABLE);
+	InternalLoadString(AppResStringsObjects.ButtonExit, IDS_BUTTON_EXIT);
+	InternalLoadString(AppResStringsObjects.UACErrorHeader, IDS_UAC_ERROR_HEADER);
+	InternalLoadString(AppResStringsObjects.UACErrorTxt, IDS_UAC_ERROR_TEXT);
+	InternalLoadString(AppResStringsObjects.ButtonStart, IDS_BUTTON_START);
+	InternalLoadString(AppResStringsObjects.ButtonStop, IDS_BUTTON_STOP);
+	InternalLoadString(AppResStringsObjects.InfoEnableSuccess, IDS_INFO_ENABLE_SUCCESS);
+	InternalLoadString(AppResStringsObjects.InfoDisableSuccess, IDS_INFO_DISABLE_SUCCESS);
+	InternalLoadString(AppResStringsObjects.InfoHeader, IDS_INFO_HEADER);
+	InternalLoadString(AppResStringsObjects.InfoDisableFail, IDS_INFO_DISABLE_FAIL);
+	InternalLoadString(AppResStringsObjects.InfoEnableFail, IDS_INFO_ENABLE_FAIL);
+	InternalLoadString(AppResStringsObjects.InfoStartFail, IDS_INFO_START_FAIL);
+	InternalLoadString(AppResStringsObjects.InfoStartSuccess, IDS_INFO_START_SUCCESS);
+	InternalLoadString(AppResStringsObjects.InfoQueryFail, IDS_INFO_QUERY_FAIL);
+	InternalLoadString(AppResStringsObjects.InfoAlreadyRunning, IDS_INFO_ALREADY_RUNNING);
+	InternalLoadString(AppResStringsObjects.InfoAlreadyStopped, IDS_INFO_ALREADY_STOPPED);
+	InternalLoadString(AppResStringsObjects.InfoStopSuccess, IDS_INFO_STOP_SUCCESS);
+	InternalLoadString(AppResStringsObjects.InfoStopFail, IDS_INFO_STOP_FAIL);
+	InternalLoadString(AppResStringsObjects.InfoAlreadyEnabled, IDS_INFO_ALREADY_ENABLED);
+	InternalLoadString(AppResStringsObjects.InfoAlreadyDisabled, IDS_INFO_ALREADY_DISABLED);
+	InternalLoadString(AppResStringsObjects.InfoConfigGetFail, IDS_INFO_CONFIG_GET_FAIL);
+	InternalLoadString(AppResStringsObjects.InfoConfigQueryFail, IDS_INFO_CONFIG_QUERY_FAIL);
+	InternalLoadString(AppResStringsObjects.InfoDisabled, IDS_INFO_DISABLED);
+	InternalLoadString(AppResStringsObjects.InfoServiceNoExist, IDS_INFO_SERVICE_NO_EXIST);
+	InternalLoadString(AppResStringsObjects.CriticalError, IDS_CRITICAL_ERROR);
+}
 
-	Header.resize((size_t)LoadStringW(MainObjects.hInst, IDS_HEADER, &Header[0], (int)Header.size()));
-	BodyText.resize((size_t)LoadStringW(MainObjects.hInst, IDS_BODY_TEXT, &BodyText[0], (int)BodyText.size()));
-	ButtonEnable.resize((size_t)LoadStringW(MainObjects.hInst, IDS_BUTTON_ENABLE, &ButtonEnable[0], (int)ButtonEnable.size()));
-	ButtonDisable.resize((size_t)LoadStringW(MainObjects.hInst, IDS_BUTTON_DISABLE, &ButtonDisable[0], (int)ButtonDisable.size()));
-	ButtonExit.resize((size_t)LoadStringW(MainObjects.hInst, IDS_BUTTON_EXIT, &ButtonExit[0], (int)ButtonExit.size()));
-	UACErrorHeader.resize((size_t)LoadStringW(MainObjects.hInst, IDS_UAC_ERROR_HEADER, &UACErrorHeader[0], (int)UACErrorHeader.size()));
-	UACErrorTxt.resize((size_t)LoadStringW(MainObjects.hInst, IDS_UAC_ERROR_TEXT, &UACErrorTxt[0], (int)UACErrorTxt.size()));
-	ButtonStart.resize((size_t)LoadStringW(MainObjects.hInst, IDS_BUTTON_START, &ButtonStart[0], (int)ButtonStart.size()));
-	ButtonStop.resize((size_t)LoadStringW(MainObjects.hInst, IDS_BUTTON_STOP, &ButtonStop[0], (int)ButtonStop.size()));
-	InfoHeader.resize((size_t)LoadStringW(MainObjects.hInst, IDS_INFO_HEADER, &InfoHeader[0], (int)InfoHeader.size()));
-
-	AppResStringsObjects.Header = Header;
-	AppResStringsObjects.BodyText = BodyText;
-	AppResStringsObjects.ButtonEnable = ButtonEnable;
-	AppResStringsObjects.ButtonDisable = ButtonDisable;
-	AppResStringsObjects.ButtonExit = ButtonExit;
-	AppResStringsObjects.UACErrorHeader = UACErrorHeader;
-	AppResStringsObjects.UACErrorTxt = UACErrorTxt;
-	AppResStringsObjects.ButtonStart = ButtonStart;
-	AppResStringsObjects.ButtonStop = ButtonStop;
-	AppResStringsObjects.InfoHeader = InfoHeader;
+void ResourceLoader::InternalLoadString(std::wstring &strReturn, UINT uID)
+{
+	std::wstring strTemp(MAX_PATH, 0);
+	strTemp.resize((size_t)LoadStringW(MainObjects.hInst, uID, &strTemp[0], (int)strTemp.size()));
+	strReturn = strTemp;
+	strTemp.clear();
 }

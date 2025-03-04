@@ -1,14 +1,14 @@
 #include "stdafx.h"
-#include "MainCode.h"
-#include "ResourceLoader.h"
-#include "Global.h"
+#include "MainInit.h"
 
 GlobalMain MainObjects;
 GlobalAppResStrings AppResStringsObjects;
 
-int main(void)
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nCmdShow)
 {
-	ResourceLoader::LoadStrings();
-	MainCodeClass::MainCode();
-	return 0;
+	UNREFERENCED_PARAMETER(hPrevInstance);
+	UNREFERENCED_PARAMETER(lpCmdLine);
+	UNREFERENCED_PARAMETER(nCmdShow);
+
+	return MainInit::Init(hInstance);
 }

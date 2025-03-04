@@ -1,9 +1,9 @@
 #pragma once
 
-class MainCodeClass {
+class MainCode {
 public:
-	static void InfoTaskFail(UINT uID, PCWSTR pszIcon);
-	static void MainCode();
+	static int InfoTaskFail(std::wstring &MessageContents, PCWSTR pszIcon);
+	static int main();
 private:
 	wchar_t *szBranding;
 };

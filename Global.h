@@ -21,7 +21,7 @@ public:
 	std::wstring InfoEnableSuccess;
 	std::wstring InfoDisableSuccess;
 	std::wstring InfoHeader;
-	std::wstring DisableFail;
+	std::wstring InfoDisableFail;
 	std::wstring InfoEnableFail;
 	std::wstring InfoStartFail;
 	std::wstring InfoStartSuccess;
@@ -36,6 +36,7 @@ public:
 	std::wstring InfoConfigQueryFail;
 	std::wstring InfoDisabled;
 	std::wstring InfoServiceNoExist;
+	std::wstring CriticalError;
 };
 
 extern GlobalMain MainObjects;

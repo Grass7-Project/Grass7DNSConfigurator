@@ -10,10 +10,12 @@
 
 #include <stdio.h>
 #include <tchar.h>
-#include "resource1.h"
+#include "Resource.h"
 
 #include <windows.h>
 #include <shlobj.h>
 #include <NTSecAPI.h>
 #include <string>
 #include <Gr7API.h>
+
+#include "Global.h"
